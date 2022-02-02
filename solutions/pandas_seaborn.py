@@ -20,7 +20,7 @@ tips["day"] = tips["day"].replace(replace)
 # c)
 g = sns.relplot(x="tip", y="total_bill", data=tips, markers=True, style="day",
                 hue="day", col="sex")
-plt.savefig("./output/tips.pdf")
+plt.savefig("../output/tips.pdf")
 
 
 # Occupations
@@ -49,7 +49,7 @@ occ_counts = occ_counts.sort_index()
 fig, ax = plt.subplots()
 occ_counts.plot.bar(ax=ax)
 ax.set(xlabel="Occupation")
-fig.savefig("./output/occupations.pdf")
+fig.savefig("../output/occupations.pdf")
 
 
 # Iris
@@ -72,7 +72,7 @@ iris.to_csv('./output/iris.csv', index=False, sep=",")
 cont = iris.select_dtypes("float")
 fig = sns.catplot(data=cont)
 fig.set_xticklabels(rotation=45)
-plt.savefig('./output/iris.pdf')
+plt.savefig('../output/iris.pdf')
 
 
 # Memory

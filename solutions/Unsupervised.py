@@ -3,12 +3,12 @@
 # Author:   Michael E. Rose <michael.ernst.rose@gmail.com>
 """Solutions for Unsupervised Machine Learning."""
 
+from bisect import bisect_right
 from pathlib import Path
 
 import matplotlib.pyplot as plt
 import pandas as pd
 import seaborn as sns
-from numpy import cumsum
 from sklearn.cluster import AgglomerativeClustering, DBSCAN, KMeans
 from sklearn.datasets import load_iris
 from sklearn.decomposition import PCA
@@ -18,7 +18,7 @@ from sklearn.preprocessing import StandardScaler
 
 # Principal Component Analysis
 # a)
-df = pd.read_csv(Path("./data/olympics.csv"), index_col=0)
+df = pd.read_csv(Path("../data/olympics.csv"), index_col=0)
 df.describe()
 # Dropping scores is absolutely necessary! It is a combination of all
 # the other variables
@@ -84,4 +84,4 @@ out = out.melt(id_vars=iris["feature_names"][1:3],
                var_name="Cluster algorithm", value_name="assignment")
 sns.catplot(x="sepal width (cm)", y="petal length (cm)",
             col="Cluster algorithm", hue="assignment", data=out)
-plt.savefig(Path("./output/cluster_petal.pdf"))
+plt.savefig(Path("../output/cluster_petal.pdf"))
